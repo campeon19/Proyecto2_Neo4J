@@ -1,33 +1,46 @@
 from neo4j import GraphDatabase
 
-class Conexion:
 
+class Conexion:
     """Constructor de la coneccion"""
+
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password), encrypted=False)
 
     """Funcion para cerrar la conexion"""
+
     def close(self):
         self.driver.close()
 
     ###################### Funciones para consultar, estos son llamados desde el controlador ###########################
 
     """Funcion para crear un nodo nuevo"""
+
     def createNode(self, name, tags):
         with self.driver.session() as session:
             session.write_transaction(self._create_node, name, tags)
 
     """Funcion para eliminar un nodo"""
+
     def deleteNode(self, name):
         with self.driver.session() as session:
             session.write_transaction(self._delete_game, name)
 
     """Funcion para buscar con referecia a tags"""
+
     def searchtags(self, tags):
         with self.driver.session() as session:
             games = session.read_transaction(self._search_by_tags, tags)
             return games
 
+    """Funcion para crear relaciones entre nodos"""
+
+    def createRelation(self, game1, tag):
+        games = self.searchtags([tag])
+        with self.driver.session() as session:
+            for game in games:
+                if game1 != game:
+                    session.write_transaction(self._game_relation, game1, game)
 
     ##################### Funciones que ejecutan los queries #################################################
     @staticmethod
@@ -46,3 +59,10 @@ class Conexion:
                 if record["n.name"] not in juegos:
                     juegos.append(record["n.name"])
         return juegos
+
+    @staticmethod
+    def _game_relation(tx, game1, game2):
+        tx.run("MATCH (n:Juegos {name: $game1}) "
+               "MATCH (j:Juegos {name: $game2}) "
+               "CREATE (n)-[:Relation]->(j)", game1=game1, game2=game2)
+

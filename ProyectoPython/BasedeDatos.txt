@@ -19,7 +19,7 @@ Clash of Clans, Estrategia, enfrentamientos
 Age of Empires 2 DE, Estrategia en tiempo real, epoca medieval
 Civilization VI, Estrategia por turnos, historia de la humanidad, guerras, multijugador
 Cities Skyline, contruccion de ciudades, estrategia
-Farming Simulator 19, simulación, granja, multijugador
+Farming Simulator 19, simulacion, granja, multijugador
 Call of Duty Movile, FPS, multijugador
 Call of Duty Black Ops IV, FPS, multijugador, zombies
 Caesar 3, construccion de ciudades, estrategia, historia, Roma
