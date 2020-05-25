@@ -28,11 +28,22 @@ class CrearNeo4j:
     def close(self):
         self.conexion.close()
 
-
+    def caracteristicas(self):
+        archivo = open("BasedeDatos.txt", mode="r", encoding="utf-8")
+        categorias = []
+        for linea in archivo.readlines():
+            esp = linea.replace("\n", "").split(", ")
+            esp.pop(0)
+            for cat in esp:
+                if cat not in categorias:
+                    categorias.append(cat)
+        archivo.close()
+        for n in categorias:
+            print(n)
 
 
 llenar = CrearNeo4j()
-llenar.fillBase()
+llenar.caracteristicas()
 llenar.close()
 
 
