@@ -22,7 +22,7 @@ class CrearNeo4j:
         juegos = self.leerTxt()
         for juego in juegos:
             split = juego.split(", ")
-            nombre = split.pop(0).replace(" ", "_")
+            nombre = split.pop(0)#.replace(" ", "_")
             tags = []
             for n in range(len(split)):
                 tags.append(split[n].lower())
