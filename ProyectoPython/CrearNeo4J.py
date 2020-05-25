@@ -23,7 +23,7 @@ class CrearNeo4j:
             tags = []
             for n in range(len(split)):
                 tags.append(split[n].lower())
-            #self.conexion.createNode(nombre, tags)
+            self.conexion.createNode(nombre, tags)
             dic = {"nombre": nombre, "tags": tags}
             data.append(dic)
         for juego in data:
