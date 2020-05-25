@@ -35,6 +35,7 @@ class Conexion:
     def _search_by_tags(tx, tags):
         juegos = []
         for tag in tags:
-            for elemento in tx.run("MATCH (n:Juegos) WHERE $tag IN n.tags RETURN n.name", tag=tag):
-                juegos.append(elemento["n.name"])
+            for record in tx.run("MATCH (n:Juegos) WHERE $tag IN n.tags RETURN n.name", tag=tag):
+                if record["n.name"] not in juegos:
+                    juegos.append(record["n.name"])
         return juegos
