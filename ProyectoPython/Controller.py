@@ -7,7 +7,7 @@ class Controller:
         self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Proyecto123")
         # self.conexion.createNode("Call of Duty 1", ["first person", "aventura", "shooter"])
         # self.conexion.deleteNode("Call of Duty 1")
-        print(self.conexion.searchtags(["first person", "aventura"]))
+        # print(self.conexion.searchtags(["first person"]))
         self.conexion.close()
 
 
