@@ -7,5 +7,4 @@ class Main:
     def __init__(self):
         self.controlador = Controller()
         self.controlador.menu()
-
 Main()

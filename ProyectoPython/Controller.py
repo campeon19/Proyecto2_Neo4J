@@ -62,6 +62,3 @@ class Controller:
             elif opcion == "2":
                 self.close()
 
-
-
-
