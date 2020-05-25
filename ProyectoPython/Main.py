@@ -5,6 +5,7 @@ def Interfaz():
 
 class Main:
 
+    """Constructor de la clase"""
     def __init__(self):
         Interfaz()
         self.controlador = Controller()

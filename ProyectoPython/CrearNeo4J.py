@@ -3,9 +3,11 @@ from Conexion import Conexion
 
 class CrearNeo4j:
 
+    """Constructor de la clase"""
     def __init__(self):
         self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Proyecto123")
 
+    """Funcion para leer el txt y retorna las lineas"""
     def leerTxt(self):
         archivo = open("BasedeDatos.txt", mode="r", encoding="utf-8")
         lineas = []
@@ -14,6 +16,7 @@ class CrearNeo4j:
         archivo.close()
         return lineas
 
+    """Funcion para llenar la base de datos en relacion a los datos del txt"""
     def fillBase(self):
         data = []
         juegos = self.leerTxt()
@@ -30,11 +33,12 @@ class CrearNeo4j:
             for tag in juego["tags"]:
                 self.conexion.createRelation(juego["nombre"], tag)
 
+    """Funcion para cerrar la conexion con la base de datos"""
     def close(self):
         self.conexion.close()
 
+    """imprime las caracteristicas de los juegos en el txt"""
     def caracteristicas(self):
-
         archivo = open("BasedeDatos.txt", mode="r", encoding="utf-8")
         categorias = []
         for linea in archivo.readlines():
