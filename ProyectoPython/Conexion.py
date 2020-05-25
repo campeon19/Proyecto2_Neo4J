@@ -37,6 +37,11 @@ class Conexion:
                 if game1 != game:
                     session.write_transaction(self._game_relation, game1, game)
 
+    """Funcion que retorna los nombres de los nodos"""
+    def getNombres(self):
+        with self.driver.session() as session:
+            return session.read_transaction(self._get_names)
+
     ##################### Funciones que ejecutan los queries #################################################
     @staticmethod
     def _create_node(tx, name, tags):
@@ -60,4 +65,13 @@ class Conexion:
         tx.run("MATCH (n:Juegos {name: $game1}) "
                "MATCH (j:Juegos {name: $game2}) "
                "CREATE (n)-[:Relation]->(j)", game1=game1, game2=game2)
+
+    @staticmethod
+    def _get_names(tx):
+        result = tx.run("MATCH (j:Juegos) RETURN j.name")
+        nombres = []
+        for res in result:
+            nombres.append(res["j.name"])
+        return sorted(nombres)
+
 
