@@ -21,12 +21,14 @@ class CrearNeo4j:
         data = []
         juegos = self.leerTxt()
         for juego in juegos:
-            split = juego.split(", ")
-            nombre = split.pop(0)#.replace(" ", "_")
+            split = juego.split(" |")
+            time = split[1]
+            split1 = split[0].split(", ")
+            nombre = split1.pop(0)
             tags = []
-            for n in range(len(split)):
-                tags.append(split[n].lower())
-            self.conexion.createNode(nombre, tags)
+            for n in range(len(split1)):
+                tags.append(split1[n].lower())
+            self.conexion.createNode(nombre, tags, time)
             dic = {"nombre": nombre, "tags": tags}
             data.append(dic)
         for juego in data:

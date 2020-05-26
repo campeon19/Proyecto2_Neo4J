@@ -14,9 +14,9 @@ class Conexion:
     ###################### Funciones para consultar, estos son llamados desde el controlador ###########################
 
     """Funcion para crear un nodo nuevo"""
-    def createNode(self, name, tags):
+    def createNode(self, name, tags, time):
         with self.driver.session() as session:
-            session.write_transaction(self._create_node, name, tags)
+            session.write_transaction(self._create_node, name, tags, time)
 
     """Funcion para eliminar un nodo"""
     def deleteNode(self, name):
@@ -24,14 +24,25 @@ class Conexion:
             session.write_transaction(self._delete_game, name)
 
     """Funcion para buscar con referecia a tags"""
-    def searchtags(self, tags):
+    def searchgame(self, tags):
         with self.driver.session() as session:
             games = session.read_transaction(self._search_by_tags, tags)
             return games
 
+    """Funcion para buscar por tags y por tiempo"""
+    def searchGameByTagsAndTime(self, tags, tMin, tMax):
+        with self.driver.session() as session:
+            games = session.read_transaction(self._search_by_tags_time, tags, tMin, tMax)
+            return games
+
+    """Funcion para obtener todas las caracteristicas disponibles en los nodos"""
+    def getCharacteristics(self):
+        with self.driver.session() as session:
+            return session.read_transaction(self._get_characteristics)
+
     """Funcion para crear relaciones entre nodos"""
     def createRelation(self, game1, tag):
-        games = self.searchtags([tag])
+        games = self.searchgame([tag])
         with self.driver.session() as session:
             for game in games:
                 if game1 != game:
@@ -43,9 +54,20 @@ class Conexion:
             return session.read_transaction(self._get_names)
 
     ##################### Funciones que ejecutan los queries #################################################
+
     @staticmethod
-    def _create_node(tx, name, tags):
-        tx.run("CREATE (:Juegos {name: $name, tags: $tags})", name=name, tags=tags)
+    def _get_characteristics(tx):
+        caracteristicas = []
+        v = tx.run("MATCH (j:Juegos) RETURN j.tags")
+        for n in v:
+            for c in n["j.tags"]:
+                if c not in caracteristicas:
+                    caracteristicas.append(c)
+        return sorted(caracteristicas)
+
+    @staticmethod
+    def _create_node(tx, name, tags, time):
+        tx.run("CREATE (:Juegos {name: $name, tags: $tags, time:$time})", name=name, tags=tags, time=float(time))
 
     @staticmethod
     def _delete_game(tx, name):
@@ -58,6 +80,18 @@ class Conexion:
             for record in tx.run("MATCH (n:Juegos) WHERE $tag IN n.tags RETURN n.name", tag=tag):
                 if record["n.name"] not in juegos:
                     juegos.append(record["n.name"])
+        return juegos
+
+    @staticmethod
+    def _search_by_tags_time(tx, tags, tMin, tMax):
+        juegos = {}
+        for tag in tags:
+            for record in tx.run("MATCH (n:Juegos) WHERE $tag IN n.tags AND $tMin <= n.time <= $tMax "
+                                 "RETURN n.name", tag=tag, tMin=float(tMin), tMax=float(tMax)):
+                if tag not in juegos:
+                    juegos[tag] = []
+                if record["n.name"] not in juegos[tag]:
+                    juegos[tag].append(record["n.name"])
         return juegos
 
     @staticmethod

@@ -29,6 +29,12 @@ class Controller:
         self.salida = True
         self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Proyecto123")
 
+    def searchTimeTags(self, tags, tMin, tMax):
+        print(self.conexion.searchGameByTagsAndTime(tags, tMin, tMax))
+
+    def getCharacteristics(self):
+        return self.conexion.getCharacteristics()
+
     """Funcion para obtener todos los nombres de los nodos"""
     def getNombres(self):
         print(self.conexion.getNombres())

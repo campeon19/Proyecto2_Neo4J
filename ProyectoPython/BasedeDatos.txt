@@ -1,36 +1,36 @@
-Grand Thef Auto V, accion, aventura, TPS, robos, drogas
-The Last of Us, accion, aventura, horror de supervivencia, zombies
-Fornite, Supervivencia, Battle Royale, armas
-Red Dead Redemption, accion, aventura
-Uncharted 4, accion, aventura, TPS, busqueda de tesoros, historia
-The Witcher 3, RPG, mundo abierto, fantasia, monstruos
-Bloodborne, RPG, accion, aventura
-Final Fantasy XV, RPG, Fantacia, Rol
-God of War IV, accion, aventura, mitologia
-Call of Duty Warzone, FPS, Battle Royale
-Spider Man, accion, aventura, superheroes
-Death Stranding, Accion, Exploracion, mundo abierto
-Assassins Creed Odyssey, RPG, mundo abierto, accion, aventura, historia, griegos, mitologia
-Assassins Creed Valhala, RPG, mundo abierto, accion, aventura, historia, vikingos, mitologia
-Assassins Creed Origins, RPG, mundo abierto, accion, aventura, historia, egipcios, mitologia
-FIFA 20, Deportes, futbol, multijugador
-PES 20, Deportes, futbol, multijugador
-Clash of Clans, Estrategia, enfrentamientos
-Age of Empires 2 DE, Estrategia en tiempo real, epoca medieval
-Civilization VI, Estrategia por turnos, historia de la humanidad, guerras, multijugador
-Cities Skyline, contruccion de ciudades, estrategia
-Farming Simulator 19, simulacion, granja, multijugador
-Call of Duty Movile, FPS, multijugador
-Call of Duty Black Ops IV, FPS, multijugador, zombies
-Caesar 3, construccion de ciudades, estrategia, historia, Roma
-Star Wars Battlefront II, shooter, accion, multijugador, Star Wars
-Star Wars Jedi, accion, aventura, Star Wars, mundo semi-abierto
-Ghost Recon Wildlands, TPS, mundo abierto, accion, aventura, shooter tactico, cartel, drogas
-Mario Maker 2, editor de niveles, plataformas, nintendo
-Mario Kart Wii, carreras, nintendo, multijugador
-Super Mario Galaxy 2, plataformas, accion, aventura, nintendo
-Shadow of the Tomb Raider, accion, aventura, tesoros, shooter
-Just Dance 2020, musica, bailar
-Far Cry 4, FPS, accion, aventura, mundo abierto
-Killzone Shadow Fall, FPS, accion, aventura, ciencia ficcion
-Luigi's Mansion 3, accion, aventura, nintendo, fantasmas
+Grand Thef Auto V, accion, aventura, TPS, robos, drogas |5
+The Last of Us, accion, aventura, horror de supervivencia, zombies |6
+Fornite, Supervivencia, Battle Royale, armas |2
+Red Dead Redemption, accion, aventura |5
+Uncharted 4, accion, aventura, TPS, busqueda de tesoros, historia |6
+The Witcher 3, RPG, mundo abierto, fantasia, monstruos |7
+Bloodborne, RPG, accion, aventura |6
+Final Fantasy XV, RPG, Fantacia, Rol |5
+God of War IV, accion, aventura, mitologia |5
+Call of Duty Warzone, FPS, Battle Royale |2
+Spider Man, accion, aventura, superheroes |6
+Death Stranding, Accion, Exploracion, mundo abierto |8
+Assassins Creed Odyssey, RPG, mundo abierto, accion, aventura, historia, griegos, mitologia |5
+Assassins Creed Valhala, RPG, mundo abierto, accion, aventura, historia, vikingos, mitologia |5
+Assassins Creed Origins, RPG, mundo abierto, accion, aventura, historia, egipcios, mitologia |5
+FIFA 20, Deportes, futbol, multijugador |2
+PES 20, Deportes, futbol, multijugador |2
+Clash of Clans, Estrategia, enfrentamientos |2
+Age of Empires 2 DE, Estrategia en tiempo real, epoca medieval |3
+Civilization VI, Estrategia por turnos, historia de la humanidad, guerras, multijugador |5
+Cities Skyline, construccion de ciudades, estrategia |3
+Farming Simulator 19, simulacion, granja, multijugador |5
+Call of Duty Movile, FPS, multijugador |2
+Call of Duty Black Ops IV, FPS, multijugador, zombies |3
+Caesar 3, construccion de ciudades, estrategia, historia, Roma |2
+Star Wars Battlefront II, shooter, accion, multijugador, Star Wars |3
+Star Wars Jedi, accion, aventura, Star Wars, mundo semi-abierto |4
+Ghost Recon Wildlands, TPS, mundo abierto, accion, aventura, shooter tactico, cartel, drogas |3
+Mario Maker 2, editor de niveles, plataformas, nintendo |2
+Mario Kart Wii, carreras, nintendo, multijugador |2
+Super Mario Galaxy 2, plataformas, accion, aventura, nintendo |3
+Shadow of the Tomb Raider, accion, aventura, tesoros, shooter |5
+Just Dance 2020, musica, bailar |3
+Far Cry 4, FPS, accion, aventura, mundo abierto |3
+Killzone Shadow Fall, FPS, accion, aventura, ciencia ficcion |4
+Luigi's Mansion 3, accion, aventura, nintendo, fantasmas |2
