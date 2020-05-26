@@ -5,7 +5,7 @@ class CrearNeo4j:
 
     """Constructor de la clase"""
     def __init__(self):
-        self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Proyecto123")
+        self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
 
     """Funcion para leer el txt y retorna las lineas"""
     def leerTxt(self):
@@ -21,14 +21,15 @@ class CrearNeo4j:
         data = []
         juegos = self.leerTxt()
         for juego in juegos:
-            split = juego.split(" |")
+            split = juego.split("|")
             time = split[1]
-            split1 = split[0].split(", ")
+            compatibility = split[2].split(",")
+            split1 = split[0].split(",")
             nombre = split1.pop(0)
             tags = []
             for n in range(len(split1)):
                 tags.append(split1[n].lower())
-            self.conexion.createNode(nombre, tags, time)
+            self.conexion.createNode(nombre, tags, time, compatibility)
             dic = {"nombre": nombre, "tags": tags}
             data.append(dic)
         for juego in data:

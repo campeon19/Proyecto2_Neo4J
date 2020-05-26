@@ -14,9 +14,9 @@ class Conexion:
     ###################### Funciones para consultar, estos son llamados desde el controlador ###########################
 
     """Funcion para crear un nodo nuevo"""
-    def createNode(self, name, tags, time):
+    def createNode(self, name, tags, time, compatibility):
         with self.driver.session() as session:
-            session.write_transaction(self._create_node, name, tags, time)
+            session.write_transaction(self._create_node, name, tags, time, compatibility)
 
     """Funcion para eliminar un nodo"""
     def deleteNode(self, name):
@@ -66,8 +66,8 @@ class Conexion:
         return sorted(caracteristicas)
 
     @staticmethod
-    def _create_node(tx, name, tags, time):
-        tx.run("CREATE (:Juegos {name: $name, tags: $tags, time:$time})", name=name, tags=tags, time=float(time))
+    def _create_node(tx, name, tags, time, compatibility):
+        tx.run("CREATE (:Juegos {name: $name, tags: $tags, time:$time, compatibility:$compatibility})", name=name, tags=tags, time=float(time), compatibility=compatibility)
 
     @staticmethod
     def _delete_game(tx, name):
