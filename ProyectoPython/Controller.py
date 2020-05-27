@@ -36,6 +36,7 @@ class Controller:
         self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
         self.tiempoMin = 0
         self.tiempoMax = 0
+        self.plataformasElegida = ""
 
     def searchTimeTags(self, tags, tMin, tMax):
         print(self.conexion.searchGameByTagsAndTime(tags, tMin, tMax))
@@ -54,23 +55,28 @@ class Controller:
         print("\n------ Fin del programa ------")
         exit(0)
 
-    def Resultados(self, tags, tMin, tMax):
-        resultados = self.conexion.searchGameByTagsAndTime(tags, tMin, tMax)
+    def Resultados(self, tags, tMin, tMax, plataforma):
+        resultados = self.conexion.searchGameTagsPlatforms(tags, tMin, tMax, plataforma)
         for _ in range(50):
             print()
         print("Los resultados recomendados segun las caracteristicas de juego que eligio son:\n\n")
-        for res in resultados:
-            print("\n"+str(res).capitalize()+":")
-            c = 0
-            for i in resultados[res]:
-                print("- "+ resultados[res][c])
-                c = c + 1
+        if len(resultados) == 0:
+            print("No se han encontrado resultados... Vuelva a intentar")
+        else:
+            print("Plataforma: " + plataforma + "\n")
+            for res in resultados:
+                print("\n"+str(res).capitalize()+":")
+                c = 0
+                for i in resultados[res]:
+                    print("- " + resultados[res][c])
+                    c = c + 1
 
         input("\n\nPresione enter para volver al menu principal...")
 
     """Funcion que organiza y realiza las preguntas al usuario"""
     def preguntas(self):
         caracteristicasElejidas = []
+        plataformas = self.conexion.getPlataforms()
         categorias = self.getCharacteristics()
         if (len(categorias) % 2) > 0:
             c = 0
@@ -81,7 +87,7 @@ class Controller:
                 if c < (len(categorias) - 3):
                     salida = True
                     while salida:
-                        print("Escoge el numero de opcion que te guste mas:")
+                        print("Escoge el numero de opcion que te guste mas:\n")
                         print("1."+categorias[c]+" \n2."+categorias[c + 1]+" \n3.Ninguno")
                         opcion = input("\nOpcion: ")
 
@@ -96,7 +102,7 @@ class Controller:
                         elif opcion == "3":
                             salida = False
                 else:
-                    print("Escoge el numero de opcion que te guste mas:")
+                    print("Escoge el numero de opcion que te guste mas:\n")
                     print("1." + categorias[c] + " \n2." + categorias[c + 1] + " \n3."+categorias[c + 2]+" \n4.Ninguno")
                     opcion = input("\nOpcion: ")
 
@@ -125,7 +131,7 @@ class Controller:
 
                 salida = True
                 while salida:
-                    print("Escoge el numero de opcion que te guste mas:")
+                    print("Escoge el numero de opcion que te guste mas:\n")
                     print("1." + categorias[c] + " \n2." + categorias[c + 1] + " \n3.Ninguno")
                     opcion = input("\nOpcion: ")
 
@@ -144,7 +150,8 @@ class Controller:
         salida = True
         while salida:
             try:
-                self.tiempoMin = float(input("\n\n\nIngrese una cantidad de horas minimas que desea jugar en la semana = "))
+                self.tiempoMin = float(
+                    input("\n\n\nIngrese una cantidad de horas minimas que desea jugar en la semana = "))
                 salida = False
             except:
                 input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
@@ -152,12 +159,30 @@ class Controller:
         salida = True
         while salida:
             try:
-                self.tiempoMax = float(input("\nIngrese una cantidad de horas maximas que desea jugar en la semana = "))
+                self.tiempoMax = float(
+                    input("\nIngrese una cantidad de horas maximas que desea jugar en la semana = "))
                 salida = False
             except:
                 input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
 
-        self.Resultados(caracteristicasElejidas, self.tiempoMin, self.tiempoMax)
+        salida = True
+        while salida:
+            try:
+                print("\n\nElije el numero de la plataforma que prefieras:\n")
+                c = 1
+                for n in plataformas:
+                    print(str(c) + ". "+n)
+                    c = c + 1
+                opcion = int(input("\nOpcion = "))
+                if (opcion > 0) and (opcion <= len(plataformas)):
+                    self.plataformasElegida = plataformas[opcion - 1]
+                    salida = False
+                else:
+                    input("\n\nHas ingresado una opcion no valida \n\nPresiona enter para volver a intentar...")
+            except:
+                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
+
+        self.Resultados(caracteristicasElejidas, self.tiempoMin, self.tiempoMax, self.plataformasElegida)
 
 
 
@@ -168,6 +193,7 @@ class Controller:
         print(_menu_iniciar_instrucciones)
         input("Presiones enter para continuar...")
         self.preguntas()
+
 
 
     """Funcion para desplegar el menu y realizar las acciones"""

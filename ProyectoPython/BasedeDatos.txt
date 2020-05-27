@@ -44,7 +44,7 @@ Minecraft,aventura,mundo abierto,sandbox,supervivencia|4|PC,Xbox One,PS4,PS3,Xbo
 Terraria,aventura,sandbox,plataforma|5|PC,Xbox One,PS4,PS3,Xbox 360,PC,Switch,Smartphone
 Street fighter V,accion,lucha,accion,aventura,PVP|2|PS4,PC
 Amnesia,horror,mounstros,miedo,supercivencia,aventura|3|PC
-Halo 5,espacio,FPS,shooter,accion,multijugador|4|Xbox one
+Halo 5,espacio,FPS,shooter,accion,multijugador|4|Xbox One
 League of legends,Estrategia,multijugador,arena,competitivo,rol,deck|5|PC
 Dota 2,Estrategia,multijugador,arena,competitivo|7|PC
 Hearthstone,deck,competitivo,rol,cartas|4|PC
