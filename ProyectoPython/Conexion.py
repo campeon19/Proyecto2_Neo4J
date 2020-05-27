@@ -51,6 +51,8 @@ class Conexion:
         with self.driver.session() as session:
             return session.read_transaction(self._get_plataforms)
 
+
+
     """Funcion para crear relaciones entre nodos"""
     def createRelation(self, game1, tag):
         games = self.searchgame([tag])
@@ -64,7 +66,25 @@ class Conexion:
         with self.driver.session() as session:
             return session.read_transaction(self._get_names)
 
+    """Funcion para obtener recomendaciones en base a un juego"""
+    def recomendaciones_juego(self, nombre, tMin, tMax, plataforma):
+        with self.driver.session() as session:
+            return session.read_transaction(self._game_recomendation, nombre, tMin, tMax, plataforma)
+
     ##################### Funciones que ejecutan los queries #################################################
+
+    @staticmethod
+    def _game_recomendation(tx, nombre, tMin, tMax, plataforma):
+        juegos = []
+        result = tx.run("MATCH (j:Juegos {name: $nombre})-[:Relation]->(n:Juegos) "
+                        "WHERE $tMin <= n.time <= $tMax "
+                        "AND $plataforma IN n.compatibility "
+                        "RETURN n.name", nombre=nombre, tMin=float(tMin), tMax=float(tMax), plataforma=plataforma)
+        for res in result:
+            if res["n.name"] not in juegos:
+                juegos.append(res["n.name"])
+        return juegos
+
 
     @staticmethod
     def _search_tags_time_platafomrs(tx, tags, tMin, tMax, platform):

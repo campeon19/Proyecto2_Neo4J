@@ -55,23 +55,78 @@ class Controller:
         print("\n------ Fin del programa ------")
         exit(0)
 
+
+    def recomendacionNombre(self, resultados):
+        opciones = []
+        salida = True
+        while salida:
+            for n in range(50):
+                print()
+            print("Elija el numero de juego que desea:\n\n")
+            for res in resultados:
+                for v in resultados[res]:
+                    if v not in opciones:
+                        opciones.append(v)
+            opciones = sorted(opciones)
+            c = 1
+            for op in opciones:
+                print(str(c)+". "+op)
+                c = c + 1
+            try:
+                opcion = int(input("\nOpcion = "))
+                if 0 < opcion <= len(opciones):
+                    recomendaciones = self.conexion.recomendaciones_juego(opciones[opcion - 1], self.tiempoMin,
+                                                                          self.tiempoMax, self.plataformasElegida)
+                    for n in range(50):
+                        print()
+
+                    print("Recomendaciones en base a juego elejido '"+str(opciones[opcion - 1])+"':\n\n")
+                    if len(opciones) == 0:
+                        print("No se encontraron resultados")
+                    else:
+                        for n in sorted(recomendaciones):
+                            print("- "+str(n))
+
+                    input("\n\nPresiona enter para volver al menu principal...")
+                    salida = False
+
+            except:
+                input("\n\nHas ingresado una opcion no valida \n\nPresiona enter para volver a intentar...")
+
+
+
+
     def Resultados(self, tags, tMin, tMax, plataforma):
         resultados = self.conexion.searchGameTagsPlatforms(tags, tMin, tMax, plataforma)
-        for _ in range(50):
-            print()
-        print("Los resultados recomendados segun las caracteristicas de juego que eligio son:\n\n")
-        if len(resultados) == 0:
-            print("No se han encontrado resultados... Vuelva a intentar")
-        else:
-            print("Plataforma: " + plataforma + "\n")
-            for res in resultados:
-                print("\n"+str(res).capitalize()+":")
-                c = 0
-                for i in resultados[res]:
-                    print("- " + resultados[res][c])
-                    c = c + 1
 
-        input("\n\nPresione enter para volver al menu principal...")
+        salida = True
+        while salida:
+            for _ in range(50):
+                print()
+            print("Los resultados recomendados segun las caracteristicas de juego que eligio son:\n\n")
+            if len(resultados) == 0:
+                print("No se han encontrado resultados... Vuelva a intentar")
+            else:
+                print("Plataforma: " + plataforma + "\n")
+                for res in resultados:
+                    print("\n"+str(res).capitalize()+":")
+                    c = 0
+                    for i in resultados[res]:
+                        print("- " + resultados[res][c])
+                        c = c + 1
+            try:
+                opcion = int(input("\n\n--------------------------------------------"
+                                   "\n\nElija el numero de la opcion que desea: \n1.Recomendacion en base a juego "
+                                   "\n2.Salir \n\nOpcion = "))
+
+                if opcion == 1:
+                    salida = False
+                    self.recomendacionNombre(resultados)
+                elif opcion == 2:
+                    salida = False
+
+            except:
+                input("\n\nHas ingresado una opcion no valida \n\nPresiona enter para volver a intentar...")
 
     """Funcion que organiza y realiza las preguntas al usuario"""
     def preguntas(self):
