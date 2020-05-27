@@ -23,17 +23,17 @@ Elige el numero de la opcion que desees:
 """
 
 _menu_iniciar_instrucciones = """
-Acontinuacion se le presentaran varias opciones en parejas, debera elejir la que mas le guste para que asi
+A continuacion se le presentaran varias opciones en parejas, debera elegir la que mas le guste para que asi
 podamos calcular opciones de juegos que puedan ser de su agrado
 
 """
-
 class Controller:
 
     """Constructor de la clase"""
     def __init__(self):
         self.salida = True
-        self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
+        #self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
+        self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Bruhxd")
         self.tiempoMin = 0
         self.tiempoMax = 0
         self.plataformasElegida = ""
@@ -62,7 +62,7 @@ class Controller:
         while salida:
             for n in range(50):
                 print()
-            print("Elija el numero de juego que desea:\n\n")
+            print("Elige el numero del juego que desea:\n\n")
             for res in resultados:
                 for v in resultados[res]:
                     if v not in opciones:
@@ -80,7 +80,7 @@ class Controller:
                     for n in range(50):
                         print()
 
-                    print("Recomendaciones en base a juego elejido '"+str(opciones[opcion - 1])+"':\n\n")
+                    print("Recomendaciones en base a juego elegido '"+str(opciones[opcion - 1])+"':\n\n")
                     if len(opciones) == 0:
                         print("No se encontraron resultados")
                     else:
