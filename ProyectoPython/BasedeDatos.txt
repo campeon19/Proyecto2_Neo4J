@@ -1,6 +1,6 @@
 Grand Thef Auto V,accion,aventura,TPS,robos,drogas,mundo abierto,lucha,carreras|5|PC,Xbox One,PS4,PS3,Xbox 360
 The Last of Us,accion,aventura,horror,supervivencia,zombies|6|PS4,PS3
-Fornite,Supervivencia,Battle Royale,armas|2|PC,Xbox One,PS4,Switch,Smartphone
+Fornite,supervivencia,Battle Royale,armas|2|PC,Xbox One,PS4,Switch,Smartphone
 Red Dead Redemption 2,accion,aventura|5|PS4,Xbox One,PC
 Uncharted 4,accion,aventura,TPS,busqueda de tesoros,historia|6|PS4
 The Witcher 3,RPG,mundo abierto,fantasia,monstruos|7|PS4,Xbox One,Switch,PC
@@ -13,11 +13,11 @@ Death Stranding,Accion,Exploracion,mundo abierto|8|PS4,PC
 Assassins Creed Odyssey,RPG,mundo abierto,accion,aventura,historia,griegos,mitologia|5|PS4,Xbox One,PC,Switch
 Assassins Creed Valhala,RPG,mundo abierto,accion,aventura,historia,vikingos,nordico,mitologia|5|PS4,Xbox One,PC,Switch
 Assassins Creed Origins,RPG,mundo abierto,accion,aventura,historia,egipcios,mitologia|5|PS4,Xbox One,PC,Switch
-FIFA 20,Deportes,futbol,multijugador|2|PS4,Xbox One,PC,Switch
-PES 20,Deportes,futbol,multijugador|2|PS4,Xbox One,PC,Switch
-Clash of Clans,Estrategia,enfrentamientos|2|Smartphone
-Age of Empires 2 DE,Estrategia en tiempo real,epoca medieval|3|PC,PS2,Xbox One
-Civilization VI,Estrategia por turnos,historia de la humanidad,guerras,multijugador|5|PS4,PC,Switch,Xbox One
+FIFA 20,deportes,futbol,multijugador|2|PS4,Xbox One,PC,Switch
+PES 20,deportes,futbol,multijugador|2|PS4,Xbox One,PC,Switch
+Clash of Clans,estrategia,enfrentamientos|2|Smartphone
+Age of Empires 2 DE,estrategia en tiempo real,epoca medieval|3|PC,PS2,Xbox One
+Civilization VI,estrategia por turnos,historia de la humanidad,guerras,multijugador|5|PS4,PC,Switch,Xbox One
 Cities Skyline,construccion de ciudades,estrategia|3|Xbox One,Switch,PC
 Farming Simulator 19,simulacion,granja,multijugador|5|PS4,Xbox One,Smartphone,PC
 Call of Duty Movile,FPS,multijugador|2|Smartphone
@@ -29,22 +29,22 @@ Ghost Recon Wildlands,TPS,mundo abierto,accion,aventura,shooter tactico,cartel,d
 Mario Maker 2,editor de niveles,plataformas,nintendo|2|Switch
 Mario Kart,carreras,nintendo,multijugador|2|Wii,Switch
 Super Mario Galaxy 2,plataformas,accion,aventura,nintendo|3|Wii
-Shadow of the Tomb Raider,accion,aventura,tesoros,shooter|5|PS4,Xbox One,PC
+Shadow of the Tomb Raider,accion,aventura,busqueda de tesoros,shooter|5|PS4,Xbox One,PC
 Just Dance 2020,musica,bailar,ejercicio|3|Wii,PS4,Switch,Xbox One
 Far Cry 4,FPS,accion,aventura,mundo abierto|3|Xbox One,PS3,Xbox 360,PC
 Killzone Shadow Fall,FPS,accion,aventura,ciencia ficcion|4|PS4
 Luigi's Mansion 3,accion,aventura,nintendo,fantasmas|2|Switch
-Rocket League,carreras,futbol,deporte,multijugador,competitivo|4|PC,Xbox One,PS4
+Rocket League,carreras,futbol,deportes,multijugador,competitivo|4|PC,Xbox One,PS4
 Mortal Kombat X,accion,lucha,accion,aventura,PVP|2|PS4,Smartphone,PC,Xbox One
-Overwatch,FPS,Estrategia,multijugador,shooter|8|PC,PS4,Xbox One,Switch
+Overwatch,FPS,estrategia,multijugador,shooter|8|PC,PS4,Xbox One,Switch
 Watch Dogs,accion,aventura,mundo abierto,tecnologia|5|PS4,Xbox One,Xbox 360,PS3
 Clone Hero,musica,rock,instrumentos,pop,competitivo|3|PC
 Rocksmith,musica,rock,instrumentos,guitarra|3|PC,PS4,PS3,Xbox One,Xbox 360
 Minecraft,aventura,mundo abierto,sandbox,supervivencia|4|PC,Xbox One,PS4,PS3,Xbox 360,PC,Switch,Smartphone
 Terraria,aventura,sandbox,plataforma|5|PC,Xbox One,PS4,PS3,Xbox 360,PC,Switch,Smartphone
 Street fighter V,accion,lucha,accion,aventura,PVP|2|PS4,PC
-Amnesia,horror,mounstros,miedo,supercivencia,aventura|3|PC
+Amnesia,horror,monstruos,miedo,supervivencia,aventura|3|PC
 Halo 5,espacio,FPS,shooter,accion,multijugador|4|Xbox One
-League of legends,Estrategia,multijugador,arena,competitivo,rol,deck|5|PC
-Dota 2,Estrategia,multijugador,arena,competitivo|7|PC
+League of legends,estrategia,multijugador,arena,competitivo,rol,deck|5|PC
+Dota 2,estrategia,multijugador,arena,competitivo|7|PC
 Hearthstone,deck,competitivo,rol,cartas|4|PC
