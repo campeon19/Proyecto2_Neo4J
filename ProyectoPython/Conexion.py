@@ -11,7 +11,7 @@ class Conexion:
     def close(self):
         self.driver.close()
 
-    ###################### Funciones para consultar, estos son llamados desde el controlador ###########################
+    ###################### Funciones para consultar, estos son llamados desde el controlador ##########################
 
     """Funcion para crear un nodo nuevo"""
     def createNode(self, name, tags, time, compatibility):
@@ -122,7 +122,8 @@ class Conexion:
 
     @staticmethod
     def _create_node(tx, name, tags, time, compatibility):
-        tx.run("CREATE (:Juegos {name: $name, tags: $tags, time:$time, compatibility:$compatibility})", name=name, tags=tags, time=float(time), compatibility=compatibility)
+        tx.run("CREATE (:Juegos {name: $name, tags: $tags, time:$time, compatibility:$compatibility})",
+               name=name, tags=tags, time=float(time), compatibility=compatibility)
 
     @staticmethod
     def _delete_game(tx, name):

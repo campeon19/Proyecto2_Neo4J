@@ -33,7 +33,7 @@ class Controller:
     """Constructor de la clase"""
     def __init__(self):
         self.salida = True
-        self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Proyecto123")
+        self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
         self.tiempoMin = 0
         self.tiempoMax = 0
         self.plataformasElegida = ""
@@ -81,7 +81,7 @@ class Controller:
                         print()
 
                     print("Recomendaciones en base a juego elejido '"+str(opciones[opcion - 1])+"':\n\n")
-                    if len(opciones) == 0:
+                    if len(recomendaciones) == 0:
                         print("No se encontraron resultados")
                     else:
                         for n in sorted(recomendaciones):
