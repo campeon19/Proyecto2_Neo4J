@@ -23,17 +23,17 @@ Elige el numero de la opcion que desees:
 """
 
 _menu_iniciar_instrucciones = """
-A continuacion se le presentaran varias opciones en parejas, debera elegir la que mas le guste para que asi
+Acontinuacion se le presentaran varias opciones en parejas, debera elejir la que mas le guste para que asi
 podamos calcular opciones de juegos que puedan ser de su agrado
 
 """
+
 class Controller:
 
     """Constructor de la clase"""
     def __init__(self):
         self.salida = True
-        self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
-        #self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Bruhxd")
+        self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Proyecto123")
         self.tiempoMin = 0
         self.tiempoMax = 0
         self.plataformasElegida = ""
@@ -62,7 +62,7 @@ class Controller:
         while salida:
             for n in range(50):
                 print()
-            print("Elige el numero del juego que desea:\n\n")
+            print("Elija el numero de juego que desea:\n\n")
             for res in resultados:
                 for v in resultados[res]:
                     if v not in opciones:
@@ -80,7 +80,7 @@ class Controller:
                     for n in range(50):
                         print()
 
-                    print("Recomendaciones en base a juego elegido '"+str(opciones[opcion - 1])+"':\n\n")
+                    print("Recomendaciones en base a juego elejido '"+str(opciones[opcion - 1])+"':\n\n")
                     if len(opciones) == 0:
                         print("No se encontraron resultados")
                     else:
@@ -203,22 +203,47 @@ class Controller:
                 pos = pos + 1
                 c = c + 2
         salida = True
-        while salida:
-            try:
-                self.tiempoMin = float(
-                    input("\n\n\nIngrese una cantidad de horas minimas que desea jugar en la semana = "))
-                salida = False
-            except:
-                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
 
-        salida = True
         while salida:
-            try:
-                self.tiempoMax = float(
-                    input("\nIngrese una cantidad de horas maximas que desea jugar en la semana = "))
+            print("\n\n\nCuantas horas tiene usted disponible para jugar a la semana? Escoja una opcion:")
+            print("1. 1-3 horas\n2. 3-5 horas\n3. 5-7 horas\n4. 7 horas en adelante")
+            rangoHoras = input("\nOpcion:")
+
+            if rangoHoras == "1":
+                self.tiempoMin = 1
+                self.tiempoMax = 3
                 salida = False
-            except:
-                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
+            elif rangoHoras == "2":
+                self.tiempoMin = 3
+                self.tiempoMax = 5
+                salida = False
+            elif rangoHoras == "3":
+                self.tiempoMin = 5
+                self.tiempoMax = 7
+                salida = False
+            elif rangoHoras == "4":
+                self.tiempoMin = 7
+                self.tiempoMax = 20
+                salida = False
+            else:
+                print("Has ingresado una opcion no valida")
+
+#        while salida:
+#            try:
+#                self.tiempoMin = float(
+#                    input("\n\n\nIngrese una cantidad de horas minimas que desea jugar en la semana = "))
+#                salida = False
+#            except:
+#                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
+#
+#        salida = True
+#       while salida:
+#            try:
+#               self.tiempoMax = float(
+#                    input("\nIngrese una cantidad de horas maximas que desea jugar en la semana = "))
+#                salida = False
+#            except:
+#                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
 
         salida = True
         while salida:
