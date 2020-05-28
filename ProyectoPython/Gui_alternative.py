@@ -1,16 +1,14 @@
-from tkinter import*
 
+import tkinter as tk
 
-root = Tk()
-root.title("GameRecommend System")
-#para bloquear pantalla: root.resizeable(0,0)
-
-#coloca el icono de la ventana
-root.iconbitmap("recomendation_logo.ico")
-
+class MainApplication(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        tk.Frame.__init__(self, parent, *args, **kwargs)
+        self.parent = parent
 
 
 
-root.mainloop()
-
-
+if __name__ == "__main__":
+    root = tk.Tk()
+    MainApplication(root).pack(side="top", fill="both", expand=True)
+    root.mainloop()
