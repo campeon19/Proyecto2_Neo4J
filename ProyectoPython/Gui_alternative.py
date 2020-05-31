@@ -9,9 +9,13 @@ root.counter = 0
 root.conexion=Conexion("bolt://localhost:7687", "neo4j", "Bruhxd")
 root.title("GameRecommend")
 root.iconbitmap("recomendation_logo.ico")
+
 programFrame = Frame(root,width="750",height="600" )
 programFrame.pack(fill="both",expand="True")
 programFrame.config(cursor="pirate")
+programFrame.config(bg = "#ffffff")
+
+
 
 def clicked():
     root.counter += 1
@@ -33,25 +37,31 @@ def clicked():
     #aqui se debe de poner lo que va a ir en el texto
 
 
-
+#BOTON
 b = Button(programFrame, text="Obtener Recomendacion", command=clicked)
 b.place(x=150,y=250)
+b.config(bg = "#e3f2fd")
 
 
-#texto que dara las recomendaciones
-#L = Label(programFrame, text=str("No hay recomendaciones"))
-#L.place(x=300,y=350)
 TextRecommendation =Text(programFrame,height=10,width=30)
 TextRecommendation.place(x=50,y=350)
 TextRecommendation.config(state ="disable")
+#COLOR TEXTBOX
+TextRecommendation.config(bg="#b1bfca")
 
 #label que va arriba en el inicio
 LabelTitulo = Label(programFrame,text=str("Sistema de recomendacion de juegos LITE"),font=("Arial","12","bold"))
-LabelTitulo.place(x=200,y=0)
+LabelTitulo.place(x=50,y=0)
+
+#COLOR TITULO
+LabelTitulo.config(bg = "#ffffff")
 
 #campo para el juego favorito
 LabelJuego = Label(programFrame, text=str("Ingrese su juego favorito"))
 LabelJuego.place(x=50,y=50)
+
+#COLOR LABEL JUEGO
+LabelJuego.config(bg = "#ffffff")
 
 EntryTextJuego = Entry(programFrame)
 EntryTextJuego.place(x=50,y=100)
@@ -61,6 +71,9 @@ EntryTextJuego.place(x=50,y=100)
 LabelConsola = Label(programFrame, text=str("Ingrese la platataforma \nen la que juega"))
 LabelConsola.place(x=250,y=50)
 
+#COLOR LABEL CONSOLA
+LabelConsola.config(bg = "#ffffff")
+
 EntryTextConsola = Entry(programFrame)
 EntryTextConsola.place(x=250,y=100)
 
@@ -69,6 +82,10 @@ EntryTextConsola.place(x=250,y=100)
 LabelHorasMin = Label(programFrame, text=str("Ingrese las horas minimas \nque juga a la semana"))
 LabelHorasMin.place(x=50,y=150)
 
+#COLOR LABEL HORAS MINIMAS
+LabelHorasMin.config(bg = "#ffffff")
+
+#SPINNER MINIMO
 SpinnerMinimo = Spinbox(programFrame,from_=1,to=12)
 SpinnerMinimo.place(x=50,y=200)
 
@@ -76,6 +93,10 @@ SpinnerMinimo.place(x=50,y=200)
 LabelHorasMax = Label(programFrame, text=str("Ingrese las horas MAXIMAS\n que juga a la semana"))
 LabelHorasMax.place(x=250,y=150)
 
+#COLOR LABEL DE HORAS MAXIMAS
+LabelHorasMax.config(bg = "#ffffff")
+
+#SPINNER MAXIMO
 SpinnerMaximo = Spinbox(programFrame,from_=1,to=12)
 SpinnerMaximo.place(x=250,y=200)
 
