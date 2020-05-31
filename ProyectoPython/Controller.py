@@ -23,7 +23,7 @@ Elige el numero de la opcion que desees:
 """
 
 _menu_iniciar_instrucciones = """
-Acontinuacion se le presentaran varias opciones en parejas, debera elejir la que mas le guste para que asi
+Acontinuacion se le presentaran varias opciones en parejas, debera elegir la que mas le guste para que asi
 podamos calcular opciones de juegos que puedan ser de su agrado
 
 """
@@ -33,7 +33,8 @@ class Controller:
     """Constructor de la clase"""
     def __init__(self):
         self.salida = True
-        self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
+        #self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
+        self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Bruhxd")
         self.tiempoMin = 0
         self.tiempoMax = 0
         self.plataformasElegida = ""
@@ -80,7 +81,7 @@ class Controller:
                     for n in range(50):
                         print()
 
-                    print("Recomendaciones en base a juego elejido '"+str(opciones[opcion - 1])+"':\n\n")
+                    print("Recomendaciones en base a juego elegido '"+str(opciones[opcion - 1])+"':\n\n")
                     if len(recomendaciones) == 0:
                         print("No se encontraron resultados")
                     else:
@@ -227,25 +228,8 @@ class Controller:
                 salida = False
             else:
                 print("Has ingresado una opcion no valida")
-
-#        while salida:
-#            try:
-#                self.tiempoMin = float(
-#                    input("\n\n\nIngrese una cantidad de horas minimas que desea jugar en la semana = "))
-#                salida = False
-#            except:
-#                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
-#
-#        salida = True
-#       while salida:
-#            try:
-#               self.tiempoMax = float(
-#                    input("\nIngrese una cantidad de horas maximas que desea jugar en la semana = "))
-#                salida = False
-#            except:
-#                input("\n\nHas ingresado una cantidad no valida \n\nPresiona enter para volver a intentar...")
-
         salida = True
+
         while salida:
             try:
                 print("\n\nElije el numero de la plataforma que prefieras:\n")
@@ -281,7 +265,7 @@ class Controller:
         for _ in range(50):
             print()
         print(bienvenido)
-        input("\nPesiona enter para continuar...")
+        input("\nPresiona enter para continuar...")
 
         while self.salida:
             for _ in range(50):

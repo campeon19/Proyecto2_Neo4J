@@ -5,8 +5,8 @@ class CrearNeo4j:
 
     """Constructor de la clase"""
     def __init__(self):
-        self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
-        #self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Bruhxd")
+        #self.conexion = Conexion("bolt://localhost:11003", "neo4j", "Proyecto123")
+        self.conexion = Conexion("bolt://localhost:7687", "neo4j", "Bruhxd")
 
     """Funcion para leer el txt y retorna las lineas"""
     def leerTxt(self):
